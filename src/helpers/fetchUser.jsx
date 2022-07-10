@@ -7,9 +7,8 @@ import { fetchingHasDoneAction, fetchUserAction, setResponseStatusAction } from 
 import { fetchRepos } from "./fetchRepos";
 
 export function fetchUser(userName, startPage) {
-    const rootURL = `https://api.github.com/users`;
     return ((dispatch) => {
-        fetch(`${rootURL}/${userName}`)
+        fetch(`https://api.github.com/users/${userName}`)
             .then((response) => {
                 dispatch(setResponseStatusAction(response));
                 if (response.status !== 200) {

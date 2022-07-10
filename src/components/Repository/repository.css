@@ -1,54 +1,46 @@
 .repos__item {
-    padding: 24px 32px;
-    background: #ffffff;
-    border-radius: 6px;
+    padding: 16px 24px 18px;
+    background: rgba(245, 248, 255, 0.06);
+    border-radius: 10px;
     position: relative;
+    display: block;
+    transition: all 0.2s ease;
+}
+.repos__item:hover {
+    background: #2b2f38;
+    transition: all 0.3s ease;
 }
 .repos__name {
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 117%;
-    color: #0064eb;
-    margin-bottom: 16px;
+    padding-right: 30px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: #4099ff;
+    margin-bottom: 6px;
     white-space: nowrap;
     max-height: 28px;
     overflow: hidden;
     width: 100%;
-    max-width: 813px;
     text-overflow: ellipsis;
     position: relative;
-}
-.repos__name-link {
-    display: inline-block;
-    position: relative;
-    max-width: 560px;
+    letter-spacing: -0.02em;
+    background: url("../../assets/images/Content/link.svg") right center no-repeat;
+    white-space: break-spaces;
     overflow: hidden;
-    word-break: break-all;
-    text-overflow: ellipsis;
-}
-.repos__name-link:after {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 2px;
-    background-color: #0064eb;
-    left: 50%;
-    bottom: 0px;
-    transition: all 0.2s ease-in-out;
-}
-.repos__name-link:hover::after {
-    cursor: pointer;
-    width: 100%;
-    left: 0;
+    word-break: break-word;
 }
 .repos__description {
-    font-size: 16px;
-    line-height: 125%;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.01em;
     max-height: 20px;
     overflow: hidden;
     width: 100%;
     max-width: 813px;
+    color: rgba(245, 248, 255, 0.5);
 }
+
 @media (max-width: 992px) {
     .repos__name-link {
         display: inline;
@@ -58,15 +50,11 @@
     }
     .repos__description {
         overflow: hidden;
-        word-break: break-all;
-        white-space: nowrap;
+        word-break: break-word;
         text-overflow: ellipsis;
     }
 }
 @media (max-width: 500px) {
-    .repos__item {
-        padding: 20px;
-    }
     .repos__name {
         margin-bottom: 10px;
     }

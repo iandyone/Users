@@ -1,13 +1,14 @@
 .pagination {
-    align-self: flex-end;
+    justify-content: space-between;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     row-gap: 16px;
-    user-select:none;
+    user-select: none;
 }
 .pagination__pages-navigation {
     margin: 0px 20px 0px 0px;
+    display: flex;
+    align-items: center;
 }
 .pagination__pages {
     display: flex;
@@ -15,33 +16,78 @@
 }
 .pagination__page,
 .pagination__page-active {
-    border-radius: 3px;
-    min-width: 21px;
-    height: 25px;
+    border-radius: 10px;
+    min-width: 40px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #808080;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    background: rgba(245, 248, 255, 0.06);
+    transition: all 0.2s ease;
 }
 .pagination__page:hover {
-    color: #0064eb;
+    color: #e1e4eb;
+    background: #333842;
+    transition: all 0.2s ease;
 }
 .pagination__page-active {
     color: #fff;
-    background: #0064eb;
+    background: #4099ff;
     padding: 2px 6px;
 }
 .pagination__page:not(:last-child),
 .pagination__page-active:not(:last-child) {
-    margin: 0px 16px 0px 0px;
+    margin: 0px 8px 0px 0px;
+}
+.pagination__page:first-child {
+    margin-right: 16px;
+}
+.pagination__page:last-child {
+    margin-left: 8px;
+}
+.pagination__page-first,
+.pagination__page-last {
+    transition: 0.2s all ease;
+    border: 2px solid #22252c;
+    border-radius: 10px;
+    background: transparent;
+}
+.pagination__button {
+    fill: none;
+    stroke: #8b8f96;
+}
+.pagination__button:hover {
+    stroke: #e1e4eb;
+}
+.pagination__page-first:hover,
+.pagination__page-last:hover {
+    stroke: #8b8f96;
+    background: transparent;
+}
+.ellipsis {
+    background-color: transparent;
+    border: 2px solid rgba(245, 248, 255, 0.06);
+    border-radius: 10px;
+}
+.ellipsis:hover {
+    color: #808080;
+    background: transparent;
 }
 @media (max-width: 992px) {
-    .pagination__page:not(:last-child),
-    .pagination__page-active:not(:last-child) {
-        margin: 0px 13px 0px 0px;
+    .pagination__pages-navigation {
+        margin: 0;
+    }
+}
+@media (max-width: 700px) {
+    .pagination {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 }
 @media (max-width: 500px) {
@@ -58,5 +104,11 @@
     .pagination__page:not(:last-child),
     .pagination__page-active:not(:last-child) {
         margin: 0px 10px 0px 0px;
+    }
+    .ellipsis, .ellipsis-page {
+        display: none;
+    }
+    .pagination {
+        display: none;
     }
 }

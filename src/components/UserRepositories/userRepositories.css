@@ -1,21 +1,29 @@
 .repos {
+    height: 100%;
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
+    color: #e1e4eb;
 }
-.repos__title {
-    font-weight: 600;
-    font-size: 32px;
-    line-height: 130%;
-    margin-bottom: 28px;
+.repos__title,
+.repos__title span {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    margin-bottom: 24px;
+    letter-spacing: -0.03em;
+    color: #e1e4eb;
+}
+.repos__title span {
+    color: rgba(245, 248, 255, 0.5);
+    margin-bottom: 0px;
 }
 .repos__repositories {
     flex: 0 1 auto;
     margin-bottom: 26px;
-    height: 520px;
 }
 .repos__item:not(:last-child) {
-    margin-bottom: 24px;
+    margin-bottom: 12px;
 }
 .repos__placeholder {
     display: flex;
@@ -23,32 +31,54 @@
 }
 .repos__placeholder .info-placeholder {
     justify-content: stretch;
-    padding-top: 190px;
+    padding-top: 95px;
 }
 .repos__placeholder .info-placeholder__picture {
     width: 110px;
     height: 100px;
     max-width: none;
 }
-.repos__placeholder .info-placeholder__text {
-    max-width: none;
+.repos .info-placeholder__text {
+    max-width: 210px;
 }
+.repos .content__home.info-placeholder {
+    background: url("../../assets/images/Content/noRepos-bg.png") top center no-repeat;
+}
+.pagination-mobile {
+    display: none;
+}
+
 @media (max-width: 992px) {
     .repos {
         align-self: stretch;
         flex: 0 1 auto;
     }
+    
     .repos__repositories {
         margin-bottom: 15px;
-        height: auto;
     }
     .repos__placeholder .info-placeholder {
         padding-top: 0px;
+        height: 379px;
+    }
+    .repos .content__home.info-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 @media (max-width: 480px) {
+    .repos {
+        padding-top: 24px;
+    }
     .repos__title {
         font-size: 24px;
         margin-bottom: 24px;
+    }
+    .pagination {
+        display: none;
+    }
+    .pagination-mobile {
+        display: flex;
     }
 }

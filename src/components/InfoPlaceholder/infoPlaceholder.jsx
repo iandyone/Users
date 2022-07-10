@@ -7,6 +7,7 @@ export function InfoPlaceholder(props) {
                 <img src={props.image} alt={props.alt} />
             </div>
             <p className="info-placeholder__text">{props.text}</p>
+            {props.children}
         </div>
     );
 }

@@ -1,0 +1,55 @@
+.pagination-mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+}
+.pagination-mobile__form {
+    align-self: center;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    column-gap: 10px;
+}
+
+.pagination-mobile__form > * {
+    flex: 0 1 33.333%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.pagination-mobile__page {
+    border-radius: 10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #22252c;
+}
+.pagination-mobile__select {
+    appearance: none;
+    font-size: 15px;
+    line-height: 24px;
+    color: #8b8f96;
+    background: #22252c;
+    background: #22252c url("../../assets/images/Content/select-icon.svg") right center no-repeat;
+    text-align: center;
+    padding-right: 15%;
+    position: relative;
+}
+.pagination-mobile__form > .pagination__button {
+    margin: 0;
+}
+.pagination-mobile__form__navigation {
+    text-align: center;
+    display: block;
+}
+
+@media (min-width: 480px) {
+    .pagination-mobile {
+        display: none;
+    }
+}

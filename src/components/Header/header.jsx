@@ -1,28 +1,26 @@
-import { useDispatch, useSelector } from "react-redux";
-import logo from "../../assets/images/Header/logo.svg";
-import searchIcon from "../../assets/images/Header/search.svg";
-import { Input } from "../Input/input.jsx";
 import "./header.css";
+import { useDispatch, useSelector } from "react-redux";
+import { Input } from "../Input/input.jsx";
 import { showContentAction, showStartScreenAction } from "../../store/actions/contentActions";
 import { resetInputAction, setRequestValueAction } from "../../store/actions/inputActions";
-import { fetchingHasStartedAction, resetUserAction } from "../../store/actions/userActions";
+import { fetchingHasStartedAction } from "../../store/actions/userActions";
+import { ProjectLink } from "../ProjectLink/projectLink";
+import { GithubLogo } from "../../svg_components/GithubLogo/githubLogo";
 
 export function Header() {
-    const inputId = "userInput";
     const dispatch = useDispatch();
-    const userName = useSelector((store) => store.input.userInput);
+    const userName = useSelector((store) => store.input.headerInput);
 
     function getUser(e, userName) {
         e.preventDefault();
         dispatch(setRequestValueAction(userName));
         dispatch(fetchingHasStartedAction());
-        dispatch(resetUserAction());
         dispatch(showContentAction());
     }
 
     function showStartScreen() {
-        document.title = `GitHub Profiles`;
-        dispatch(resetInputAction(inputId));
+        document.title = `GitHub Users`;
+        dispatch(resetInputAction("headerInput"));
         dispatch(showStartScreenAction());
     }
 
@@ -31,14 +29,13 @@ export function Header() {
             <div className="header__container container">
                 <div className="header__body">
                     <div className="header__logo" onClick={() => showStartScreen()}>
-                        <img src={logo} alt="Логотип" />
+                        <GithubLogo />
+                        <span className="header__logo-title">Users</span>
                     </div>
                     <form action="#" className="header__form form" onSubmit={(e) => getUser(e, userName)}>
-                        <Input id={inputId} type={"text"} className={"header__input"} placeholder={"Enter GitHub username"} />
-                        <button type="submit" className="header__button">
-                            <img src={searchIcon} alt="Кнопка 'Найти пользователя'" />
-                        </button>
+                        <Input id={"headerInput"} type={"text"} className={"header__input"} placeholder={"Search by GitHub username"} />
                     </form>
+                    <ProjectLink className={"header__link"}/>
                 </div>
             </div>
         </header>

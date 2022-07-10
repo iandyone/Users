@@ -1,31 +1,33 @@
 .repos__loader {
     margin-bottom: 26px;
-    height: 520px;
 }
 .repos__loader-item {
-    height: 112px;
+    height: 88px;
     padding: 24px 32px;
-    border-radius: 6px;
-    margin: 0px 0px 24px 0px;
+    border-radius: 10px;
+    margin: 0px 0px 12px 0px;
     background-image: linear-gradient(
         90deg,
-        #f2f2f2 0%,
-        #f2f2f2 40%,
-        #dddddd 50%,
-        #dddddd 55%,
-        #f2f2f2 65%,
-        #f2f2f2 100%
+        #22252c 0%,
+        #22252c 40%,
+        #83868d 50%,
+        #83868d 55%,
+        #22252c 70%,
+        #22252c 100%
     );
-    background-size: 400%;
-    animation: shimmer 1500ms infinite;
+    background-size: 300%;
+    animation: shimmer 1700ms infinite .3s;
 }
 .repos__loader-item:not(:last-child) {
-    margin-bottom: 24px;
+    margin-bottom: 12px;
+}
+.repos__loader-item:last-child {
+    margin-bottom: 0;
 }
 .loader-item__title {
     height: 28px;
     width: 220px;
-    margin: 0px 0px 16px 0px;
+    margin: 0px 0px 6px 0px;
     background: #f8f8f8;
 }
 .loader-item__text {
@@ -53,8 +55,8 @@
         margin: 0px 0px 10px 0px;
     }
     .repos__loader-item {
-        padding: 20px;
-        height: 98px;
+        padding: 17px;
+        height: 92px;
     }
 }
 @media (max-width: 992px) {

@@ -1,8 +1,10 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import "./userData.css";
 import { UserActivity } from "../UserActivity/userActivity";
 import { useSelector } from "react-redux";
 import { numFormatter } from "../../helpers/numFormatter";
 import { useEffect } from "react";
+import { GithubLogo } from "../../svg_components/GithubLogo/githubLogo";
 
 export function UserData() {
     const avatar = useSelector((store) => store.user.user.avatar_url);
@@ -13,20 +15,26 @@ export function UserData() {
     const following = numFormatter(useSelector((store) => store.user.user.following));
 
     useEffect(() => {
-        document.title = `GitHub Profiles — ${login}`;
+        document.title = `GitHub Users — ${login}`;
     })
 
     return (
         <div className="user__data">
-            <div className="user__avatar">
-                <img src={avatar} alt="Аватар пользователя" />
+            <div className="user__info">
+                <div className="user__avatar">
+                    <img src={avatar} alt="Аватар пользователя" />
+                </div>
+                <h3 className="user__name">{userName}</h3>
+                <a href={profile} target="_blank" rel="noreferrer" className="user__link">{login}</a>
+                <div className="user__media">
+                    <UserActivity className={"user__activity"} message={`followers`} value={followers} />
+                    <UserActivity className={"user__activity"} message={`following`} value={following} />
+                </div>
+                <a href={profile} className="user__button" target="_blank" rel="noreferrer">
+                    <GithubLogo />
+                    <span>Open on GitHub</span>
+                </a>
             </div>
-            <h3 className="user__name">{userName}</h3>
-            <a href={profile} target="_blank" rel="noreferrer" className="user__link">{login}</a>
-            <div className="user__media">
-                <UserActivity className={"user__activity followers"} content={`${followers} followers`} />
-                <UserActivity className={"user__activity following"} content={`${following} following`} />
-            </div>
-        </div>
+        </div >
     );
 }

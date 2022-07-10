@@ -1,0 +1,33 @@
+.project__link {
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: -0.01em;
+    color: #8b8f96;
+    white-space: nowrap;
+    transition: all .2s ease;
+    align-self: center;
+    stroke: #F5F8FF;
+    stroke-opacity: 0.5;
+    fill: none;
+    display: inline-flex;
+    align-items: center;
+    column-gap: 8px;
+}
+.project__link:hover {
+    color: #4099FF;
+    transition: all .3s ease;
+    stroke: #4099FF;
+    stroke-opacity: 1;
+}
+.placeholder__link.project__link {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .header__link.project__link {
+        display: none;
+    }
+    .placeholder__link.project__link {
+        display: inline-flex;
+    }
+}

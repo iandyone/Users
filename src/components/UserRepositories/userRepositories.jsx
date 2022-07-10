@@ -1,17 +1,20 @@
+import "./userRepositories.css";
 import { useSelector } from "react-redux";
 import { Repository } from "../Repository/repository";
-import "./userRepositories.css";
 import reposNotFoundIcon from "../../assets/images/Content/noRepos.svg";
 import { InfoPlaceholder } from "../InfoPlaceholder/infoPlaceholder";
 import { Fragment } from "react";
 import { Pagination } from "../Pagination/pagination";
 import { RepositoryLoader } from "../RepositoryLoader/repositoryLoader";
+import { useRef } from "react";
+import { PaginationMobile } from "../PaginationMobile/paginationMobile";
 
 export function UserRepositories() {
     const repos = useSelector((store) => store.user.repositories);
     const reposCounter = useSelector((store) => store.user.user.public_repos);
     const isReposListEmpty = reposCounter === 0;
     const isReposFetching = useSelector((store) => store.user.isReposFetching);
+    const reposTitle = useRef(null);
 
     function getRepository(name, description, url, id) {
         return <Repository repoName={name} description={description} url={url} key={id} />;
@@ -19,13 +22,13 @@ export function UserRepositories() {
 
     return (
         <div className="user__repos repos">
+            <h2 className="repos__title" ref={reposTitle}>Repositories <span>{reposCounter}</span></h2>
             {(isReposListEmpty) ?
                 <div className="repos__placeholder">
-                    <InfoPlaceholder image={reposNotFoundIcon} alt={"Repositories not found"} text={"Repository list is empty"} />
+                    <InfoPlaceholder image={reposNotFoundIcon} alt={"Repositories not found"} text={"Uh oh, looks like there are no repositories"} />
                 </div>
                 :
                 <Fragment>
-                    <h2 className="repos__title">Repositories ({reposCounter})</h2>
                     {((isReposFetching) ?
                         <RepositoryLoader />
                         :
@@ -35,7 +38,8 @@ export function UserRepositories() {
                             })}
                         </div>
                     )}
-                    <Pagination />
+                    <Pagination reposTitle={reposTitle} />
+                    <PaginationMobile reposTitle={reposTitle}/>
                 </Fragment>
             }
         </div>

@@ -4,8 +4,14 @@
     padding-left: 32px;
 }
 .user__activity {
-    font-size: 16px;
-    line-height: 150%;
-    padding-left: 32px;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 20px;
     white-space: nowrap;
+    color: rgba(245, 248, 255, 0.5);
+    letter-spacing: -0.01em;
+}
+.user__activity span {
+    color: #E1E4EB;
+    font-weight: 400;
 }

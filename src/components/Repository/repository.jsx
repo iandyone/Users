@@ -2,11 +2,9 @@ import "./repository.css";
 
 export function Repository(props) {
     return (
-        <div className="repos__item">
-            <h4 className="repos__name">
-                <a className="repos__name-link" href={props.url} target="_blank" rel="noreferrer">{props.repoName}</a>
-            </h4>
+        <a href={props.url} target="_blank" rel="noreferrer" className="repos__item">
+            <h4 className="repos__name">{props.repoName}</h4>
             <p className="repos__description">{props.description ?? "Description not found"}</p>
-        </div>
+        </a>
     );
 }

@@ -3,11 +3,11 @@
     width: 100%;
 }
 .content__body {
-    max-width: 1295px;
+    max-width: 1080px;
     margin: 0 auto;
     width: 100%;
     padding: 0 20px;
-
+    box-sizing: content-box;
     display: flex;
     column-gap: 85px;
 }
@@ -20,12 +20,16 @@
 }
 .user__body {
     display: flex;
-    column-gap: 85px;
+    column-gap: 60px;
     flex: 1 1 auto;
 }
 .user__pagination {
     text-align: right;
 }
+.app__content .info-placeholder__text {
+    max-width: none;
+}
+
 @media (max-width: 1200px) {
     .user__body {
         column-gap: 40px;

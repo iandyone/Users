@@ -1,5 +1,12 @@
 .pages-navigation__navigation {
-    font-size: 14px;
-    line-height: 21px;
+    font-size: 15px;
+    line-height: 133%;
     color: #808080;
+    letter-spacing: -0.01em;
+    color: rgba(245, 248, 255, 0.5);
+    font-weight: 400;
+}
+
+.pages-navigation__navigation span {
+    font-weight: 300;
 }

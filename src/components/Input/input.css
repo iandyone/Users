@@ -2,17 +2,28 @@ input {
     width: 100%;
     max-width: 500px;
     min-height: 40px;
-    padding: 8px 14px 8px 44px;
-    background: #ffffff;
-    border-radius: 6px;
+    padding: 8px 14px 8px 40px;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
+    font-size: 15px;
+    line-height: 20px;
     display: flex;
     align-items: center;
-    letter-spacing: 0.01em;
-    color: #000000;
+    letter-spacing: -0.01em;
+    background: #22252c url("../../assets/images/Header/search.svg") 10px center no-repeat;
+    color: #E1E4EB;
+    border: 1px solid #22252c;
+    border-radius: 10px;
+    transition: all .2s ease;
 }
+input:hover {
+    border: 1px solid #484b52;
+    transition: all .3s ease;
+}
+
+input:focus {
+    border: 1px solid #4099FF;
+}
+
 @media (max-width: 992px) {
     input {
         max-width: none;

@@ -76,14 +76,21 @@ h6 {
     font-size: inherit;
     font-weight: 400;
 }
+
 /* ------------------------------------------------ */
 
 .wraper {
     height: 100%;
 }
 .container {
-    max-width: 1255px;
+    max-width: 1080px;
     margin: 0 auto;
     padding: 0 20px;
     box-sizing: content-box;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
 }
